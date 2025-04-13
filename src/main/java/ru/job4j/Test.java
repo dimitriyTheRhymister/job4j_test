@@ -8,10 +8,18 @@ public class Test extends ArrayList<Float> {
     public static void main(String[] args) {
         ArrayList<Float> listOfNumbers = new Test();
 
-        Class actual = listOfNumbers.getClass();
+        listOfNumbers.add(1.0f);
+        listOfNumbers.add(2.5f);
+        listOfNumbers.add(3.14f);
+
+        for (Float number : listOfNumbers) {
+            System.out.println(number);
+        }
+
+        var actual = listOfNumbers.getClass();
         ParameterizedType type = (ParameterizedType) actual.getGenericSuperclass();
         System.out.println(type);
-        Class parameter = (Class) type.getActualTypeArguments()[0];
+        var parameter = (Class<?>) type.getActualTypeArguments()[0];
         System.out.println(parameter);
 
         int i = -5;
